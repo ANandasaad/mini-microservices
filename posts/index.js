@@ -27,7 +27,6 @@ app.post("/posts", async (req, res) => {
           title,
         },
       },
-      timeout: 10000, // 10 seconds timeout
     });
     res.status(201).send({
       success: true,
