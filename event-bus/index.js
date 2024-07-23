@@ -12,9 +12,9 @@ app.post("/events", async (req, res) => {
     events.push(event);
     console.log("Received event:", event);
     await axios.post("http://posts-clustureip-srv:4000/events", event);
-    // await axios.post("http://localhost:4001/events", event);
-    // await axios.post("http://localhost:4002/events", event);
-    // await axios.post("http://localhost:4003/events", event);
+    await axios.post("http://comment-srv:4001/events", event);
+    await axios.post("http://query-srv:4002/events", event);
+    await axios.post("http://moderation-srv:4003/events", event);
     res.send({ status: "OK" });
   } catch (error) {
     console.error("Error handling event:", error.message);
